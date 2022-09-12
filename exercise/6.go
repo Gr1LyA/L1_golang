@@ -12,7 +12,7 @@ func main() {
 	case2()
 }
 
-
+// С помощью канала
 func case1() {
 	done := make(chan struct{})
 	wg := new(sync.WaitGroup)
@@ -35,6 +35,7 @@ func case1() {
 	wg.Wait()
 }
 
+// с помощью переменной
 func case2() {
 	stop := int64(0)
 
