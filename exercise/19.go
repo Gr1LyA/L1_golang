@@ -7,6 +7,7 @@ func main() {
 
 	fmt.Scanln(&in)
 
+	// Конвертируем в []rune, чтоб итерироваться по символам, а не по байтам
 	str := []rune(in)
 
 	length := len(str)

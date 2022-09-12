@@ -9,13 +9,12 @@ func main() {
 	var str string
 	var integer int
 	var interf interface{}
-	var interrf2 any
 
 	//с помощью TypeOf() из пакета reflect
-	fmt.Println(reflect.TypeOf(str), reflect.TypeOf(integer), reflect.TypeOf(interf), reflect.TypeOf(interrf2))
+	fmt.Println(reflect.TypeOf(str), reflect.TypeOf(integer), reflect.TypeOf(interf))
 
 	//с помощью switch кострукции которая продемонстрирована в фукции tip()
-	fmt.Println(tip(str), tip(integer), tip(interf), tip(interrf2))
+	fmt.Println(tip(str), tip(integer), tip(interf))
 }
 
 func tip(a any) string {

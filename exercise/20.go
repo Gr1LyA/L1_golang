@@ -8,18 +8,18 @@ import (
 func main() {
 	in := "snow dog sun"
 
+	//Делим строку по пробелам, получаем массив строк
 	words := strings.Split(in, " ")
-
-	var res string
 
 	length := len(words)
 
+	// Выводим в stdout полученный массив с конца
 	for i := range words {
-		res += words[length - 1 - i]
+		fmt.Print(words[length - 1 - i])
 		if i != length - 1 {
-			res += " "
+			fmt.Print(" ")
+		} else {
+			fmt.Print("\n")
 		}
 	}
-
-	fmt.Print(res)
 }

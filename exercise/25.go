@@ -7,8 +7,10 @@ import (
 
 func main() {
 	start := time.Now()
+
 	sleep1(time.Second * 2)
 	fmt.Println(time.Now().Sub(start))
+
 	sleep2(time.Second * 2)
 	fmt.Println(time.Now().Sub(start))
 }
@@ -19,7 +21,8 @@ func sleep1(n time.Duration) {
 
 func sleep2(n time.Duration) {
 	start := time.Now()
-	for time.Now().Sub(start) < n {
 
+	// Метод Sub() вернет разницу между текущем временем и моментом когда мы инициализировали start
+	for time.Now().Sub(start) < n {
 	}
 }

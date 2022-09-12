@@ -3,17 +3,20 @@ package main
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
 
+// Можно использовать мьютекс либо атомарные операции
 type integer struct {
-	x int
-	sync.Mutex
+	x int64
+	// sync.Mutex
 }
 
 func (i *integer) Inkrement() {
-	i.Lock()
-	i.x++
-	i.Unlock()
+	// i.Lock()
+	// i.x++
+	// i.Unlock()
+	atomic.AddInt64(&i.x, 1)
 }
 
 func main() {

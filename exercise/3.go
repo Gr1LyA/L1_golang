@@ -14,10 +14,13 @@ func main() {
 	fmt.Println(way2(nums))
 }
 
-//с помощью атомарных операций
+// с помощью атомарных операций, 
+// для простых задач типа увеличить число подходит лучше чем мьютекс,
+// так как энергоэффективнее
 func way1(nums [5]int) (res int64) {
 	wg := new(sync.WaitGroup)
 
+	//прибавляет к res квадрат числа из массива
 	f := func(num int) {
 		atomic.AddInt64(&(res), int64(num * num))
 		wg.Done()
@@ -37,6 +40,7 @@ func way2(nums [5]int) (res int64) {
 	wg := new(sync.WaitGroup)
 	var mx sync.Mutex
 
+	//прибавляет к res квадрат числа из массива
 	f := func(num int) {
 		mx.Lock()
 		res += int64(num * num)
@@ -44,6 +48,7 @@ func way2(nums [5]int) (res int64) {
 		wg.Done()
 	}
 
+	// На каждое число из массива запускаем свою горутину
 	for _, v := range nums {
 		wg.Add(1)
 		go f(v)

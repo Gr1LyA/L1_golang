@@ -7,14 +7,9 @@ func main() {
 
 	fmt.Println(a, b)
 
-
+	
 	a, b = b, a
 	fmt.Println(a, b)
-
-	// a = a ^ b
-	// b = a ^ b
-	// a = a ^ b
-	// fmt.Println(a, b)
 
 	a = a + b
 	b = a - b

@@ -11,25 +11,26 @@ func main() {
 }
 
 func cross(arr1, arr2 []any) (result []any) {
+	// Инициализируем map
 	res := make(map[any]int)
 
+	// Проходимся по массиву и кладем 1 по всем значениям ключей из массива
 	for _, v := range arr1 {
-		if res[v] == 0 {
-			res[v]++
-		}
+		res[v] = 1
 	}
 
+	// Проходимся по второму массиву, и если по нужному ключу лежит 1,
+	// то есть пересечение, добавляем ключ в итоговое множество
 	for _, v := range arr2 {
-		if res[v] == 1 {
+		if res[v] == 1{
+			result = append(result, v)
+
+			// Если убрать строку ниже, то в итоговом множестве могут быть повторения
 			res[v]++
 		}
 	}
 
-	for k, v := range res {
-		if v == 2 {
-			result = append(result, k)
-		}
-	}
+	fmt.Println(res)
 
 	return result
 }

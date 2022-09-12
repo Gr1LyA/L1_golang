@@ -28,6 +28,7 @@ func main() {
 			{Name:"Yuliy", Age: 0},
 		}
 
+		// Для сортировки slice нужно передать функцию less
 		sort.Slice(arr, func(i, j int) bool {
 			return arr[i].Age < arr[j].Age
 		})

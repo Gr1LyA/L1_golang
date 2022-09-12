@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"strings"
-	"time"
 )
 
 func main() {
@@ -11,14 +10,19 @@ func main() {
 
 	for {
 		fmt.Scanln(&in)
-		start := time.Now()
-		fmt.Println("check: ", check(in), time.Now().Sub(start))
-		start = time.Now()
-		fmt.Println("check1: ", check1(in), time.Now().Sub(start))
+		fmt.Println("check: ", check(in))
+
+		fmt.Println("check1: ", check1(in))
 	}
 }
 
+// Воспользовался функцией strings.Count,
+// которая возвращает количество повторений подстроки в строке
 func check(str string) bool {
+
+	// Возвращает строку c нижним регистром
+	str = strings.ToLower(str)
+
 	for _, v := range str {
 		if strings.Count(str, string(v)) != 1 {
 			return false
@@ -30,6 +34,10 @@ func check(str string) bool {
 
 //храним количество повторений по ключу(rune)
 func check1(str string) bool {
+
+	// Возвращает строку c нижним регистром
+	str = strings.ToLower(str)
+
 	m := make(map[rune]int)
 
 	for _, v := range str {

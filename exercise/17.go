@@ -8,6 +8,7 @@ import (
 func main() {
 	arr := []int{0, 10, 2, 5, 1, 3, 7}
 
+	// Бинарный поиск работает только с отсортированным массивом
 	sort.Ints(arr)
 
 	fmt.Println(arr)
