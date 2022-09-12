@@ -25,7 +25,6 @@ func (s *adapter) SayHello() {
 	s.Say("Hello")
 }
 
-
 func main() {
 	var s s1
 

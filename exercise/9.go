@@ -23,10 +23,10 @@ func main() {
 		for {
 			select {
 			// Получение исходного значения массива
-			case x := <- ch1:
+			case x := <-ch1:
 				// Отправка удвоенного полученного значения
 				ch2 <- (x * 2)
-			case <- done:
+			case <-done:
 				fmt.Println("goroutine exit")
 				return
 			}
@@ -37,9 +37,9 @@ func main() {
 		//Отправка исходного значения массива
 		ch1 <- v
 		// Получение удвоенного значения
-		fmt.Println(<- ch2)
+		fmt.Println(<-ch2)
 	}
-	
+
 	close(done)
 	wg.Wait()
 }

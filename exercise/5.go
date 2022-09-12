@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"sync"
+	"time"
 )
 
 func main() {
@@ -24,13 +24,13 @@ func main() {
 	f1 := func() {
 		defer wg.Done()
 		for {
-			select{
+			select {
 			// чтение данных из канала
-			case x := <- ch:
+			case x := <-ch:
 				fmt.Println(x)
 
 			// В этот кейс функция попадет когда мы закроем канал done, по истечении n секунд
-			case <- done:
+			case <-done:
 				fmt.Println("f1 exit")
 				return
 			}
@@ -40,13 +40,13 @@ func main() {
 	// Функция для отправки значений в канал
 	f2 := func() {
 		defer wg.Done()
-		for i := 0;;i++{
-			select{
+		for i := 0; ; i++ {
+			select {
 			// Отправляем данные в канал
 			case ch <- i:
 
 			// В этот кейс функция попадет когда мы закроем канал done, по истечении n секунд
-			case <- done:
+			case <-done:
 				fmt.Println("f2 exit")
 				return
 			}
@@ -60,14 +60,13 @@ func main() {
 	// Функция для отправки значений в канал
 	go f2()
 
-
 	// Для того, чтоб пройти дальше по телу main,
 	// нужно дождаться пока мы сможем прочитать данные из канала <-chan time.Time,
 	// возвращаемого функцией: func time.After(d time.Duration) <-chan time.Time,
 	// Произойдет это по истечении n секунд
 
-	<- time.After(time.Duration(n) * time.Second)
-	
+	<-time.After(time.Duration(n) * time.Second)
+
 	// Закрываем канал, для прекращения работы горутин
 	close(done)
 	wg.Wait()

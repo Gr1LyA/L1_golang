@@ -14,7 +14,7 @@ func main() {
 	fmt.Println(way2(nums))
 }
 
-// с помощью атомарных операций, 
+// с помощью атомарных операций,
 // для простых задач типа увеличить число подходит лучше чем мьютекс,
 // так как энергоэффективнее
 func way1(nums [5]int) (res int64) {
@@ -22,7 +22,7 @@ func way1(nums [5]int) (res int64) {
 
 	//прибавляет к res квадрат числа из массива
 	f := func(num int) {
-		atomic.AddInt64(&(res), int64(num * num))
+		atomic.AddInt64(&(res), int64(num*num))
 		wg.Done()
 	}
 

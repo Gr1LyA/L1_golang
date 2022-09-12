@@ -6,8 +6,8 @@ import (
 )
 
 type Human struct {
-	Name	string
-	Age		int
+	Name string
+	Age  int
 }
 
 func main() {
@@ -21,11 +21,11 @@ func main() {
 
 	{
 		arr := []Human{
-			{Name:"ilya", Age: 66},
-			{Name:"olya", Age: 1},
-			{Name:"andrey", Age: 55},
-			{Name:"evkakiy", Age: 3},
-			{Name:"Yuliy", Age: 0},
+			{Name: "ilya", Age: 66},
+			{Name: "olya", Age: 1},
+			{Name: "andrey", Age: 55},
+			{Name: "evkakiy", Age: 3},
+			{Name: "Yuliy", Age: 0},
 		}
 
 		// Для сортировки slice нужно передать функцию less

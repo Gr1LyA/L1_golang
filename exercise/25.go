@@ -16,7 +16,7 @@ func main() {
 }
 
 func sleep1(n time.Duration) {
-	<- time.After(n)
+	<-time.After(n)
 }
 
 func sleep2(n time.Duration) {

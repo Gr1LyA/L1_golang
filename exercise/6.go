@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"sync"
 	"sync/atomic"
+	"time"
 )
 
 func main() {
@@ -22,13 +22,13 @@ func case1() {
 		defer wg.Done()
 		for {
 			select {
-			case <- done:
+			case <-done:
 				fmt.Println("goroutine exit")
-				return 
+				return
 			}
 		}
 	}()
-	
+
 	time.Sleep(time.Second * 2)
 
 	close(done)
@@ -47,7 +47,7 @@ func case2() {
 		for {
 			if atomic.LoadInt64(&stop) == 1 {
 				fmt.Println("goroutine exit")
-				return 
+				return
 			}
 		}
 	}()

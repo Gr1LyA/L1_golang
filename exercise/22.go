@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/big"
 )
+
 func main() {
 	{
 		num1 := new(big.Int)
@@ -33,8 +34,8 @@ func main() {
 		// В случае умножения и суммы Println будет ругаться на переполнение
 
 		// fmt.Println("a * b = ", num1 * num2)
-		fmt.Println("a / b = ", num1 / num2)
+		fmt.Println("a / b = ", num1/num2)
 		// fmt.Println("a + b = ", num1 + num2)
-		fmt.Println("a - b = ", num1 - num2)
+		fmt.Println("a - b = ", num1-num2)
 	}
 }

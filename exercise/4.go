@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"os/signal"
 	"os"
+	"os/signal"
+	"sync"
 )
 
 func main() {
@@ -32,18 +32,17 @@ func main() {
 			for {
 				select {
 				// чтение данных из канала
-				case out = <- ch :
+				case out = <-ch:
 					fmt.Println(out)
 
 				// В этот кейс функция попадет когда мы закроем канал done, после получения Ctrl+C
-				case <- done:
+				case <-done:
 					fmt.Println("goroutine exit")
 					return
 				}
 			}
 		}()
 	}
-
 
 	// Создаем канал для получение сигнала
 	signalChan := make(chan os.Signal)
@@ -52,10 +51,10 @@ func main() {
 	signal.Notify(signalChan, os.Interrupt)
 
 	for {
-		select{
+		select {
 		// Если был отправлен Interrupt, то закрываем done для завершения горутин.
 		// Заверешение горутин ожидаем с помощью wg.Wait()
-		case <- signalChan:
+		case <-signalChan:
 			fmt.Println("main exit")
 			close(done)
 			wg.Wait()

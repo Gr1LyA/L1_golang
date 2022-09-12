@@ -19,11 +19,11 @@ func main() {
 
 func tip(a any) string {
 	switch a.(type) {
-	case int: 
+	case int:
 		return "int"
-	case string: 
+	case string:
 		return "string"
-	default: 
+	default:
 	}
 
 	return "<nil>"

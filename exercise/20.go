@@ -15,8 +15,8 @@ func main() {
 
 	// Выводим в stdout полученный массив с конца
 	for i := range words {
-		fmt.Print(words[length - 1 - i])
-		if i != length - 1 {
+		fmt.Print(words[length-1-i])
+		if i != length-1 {
 			fmt.Print(" ")
 		} else {
 			fmt.Print("\n")

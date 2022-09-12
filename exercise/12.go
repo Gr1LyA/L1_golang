@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	strs := []string {"cat", "cat", "dog", "cat", "tree"}
+	strs := []string{"cat", "cat", "dog", "cat", "tree"}
 
 	fmt.Println(getUniqArr(strs))
 }

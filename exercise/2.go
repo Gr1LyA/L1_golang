@@ -11,7 +11,6 @@ func main() {
 	//WaitGroup для контроля над тем, что все горутины закончили работу
 	wg := new(sync.WaitGroup)
 
-
 	f := func(num int) {
 		fmt.Println(num * num)
 

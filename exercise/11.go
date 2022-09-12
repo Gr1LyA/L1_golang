@@ -7,7 +7,7 @@ func main() {
 	arr2 := []any{-1, 3, 55, 2, -1, -1, "test"}
 
 	fmt.Println(cross(arr1, arr2))
-	
+
 }
 
 func cross(arr1, arr2 []any) (result []any) {
@@ -22,7 +22,7 @@ func cross(arr1, arr2 []any) (result []any) {
 	// Проходимся по второму массиву, и если по нужному ключу лежит 1,
 	// то есть пересечение, добавляем ключ в итоговое множество
 	for _, v := range arr2 {
-		if res[v] == 1{
+		if res[v] == 1 {
 			result = append(result, v)
 
 			// Если убрать строку ниже, то в итоговом множестве могут быть повторения
